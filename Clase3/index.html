@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <title>Document</title>    
+</head>
+
+    <div>
+        <button id="miBoton">Click Me</button>
+    </div>  
+    
+    <br/>
+
+    <div>        
+        <form>
+            <label for="txtNombre">Nombre</label>
+            <input id="txtNombre" type="text" required name="name" placeholder="Ingrese nombre">
+            <br/>
+            <br/>
+            <label for="txtPass">Password</label>
+            <input id="txtPass" type="password" name="pass" placeholder="Ingrese password" >
+            <br/>
+            <br/>
+            <label for="txtAge">Edad</label>
+            <input id="txtAge" type="number" name="age" placeholder="Ingrese edad">
+            <br/>
+            <br/>
+            <label for="txtBirth">Fecha de Nacimiento</label>
+            <input id="txtBirth" type="date" name="birth" >
+            <br/>
+            <br/>
+            <label for="txtColor">Color favorito</label>
+            <input id="txtColor" type="color" name="color">
+            <br/>
+            <br/>
+            <label for="txtFile">Subir foto</label>
+            <input id="txtFile" type="file" name="profilePhoto">
+            <br/>
+            <br/>
+
+            <fieldset>
+                <legend>Lenguaje mas Dominado</legend>
+                <input type="radio" name="lenguajes" value="Javascript">Javascript <br/>
+                <input type="radio" name="lenguajes" value="C#">C# <br/>
+                <input type="radio" name="lenguajes" value="Python">Python <br/>
+            </fieldset>
+            
+            <br/>
+            
+            <fieldset>
+                <legend>Materias Aprobadas</legend>
+                <input type="checkbox" name="materia1" value="Javascript">Labo I <br/>
+                <input type="checkbox" name="materia2" value="C#">Labo II <br/>
+                <input type="checkbox" name="materia3" value="Python">Labo III <br/>
+            </fieldset>
+
+            <br/>
+
+            <label for="cboFrutas">Frutas</label>
+            <select name="fruta" id="cboFrutas">
+                <option value="banana">Banana</option>
+                <option value="manzana">Manzana</option>
+                <option value="pera">Pera</option>
+                <option value="melon">Melon</option>
+            </select>
+            <br/>
+            <br/>
+            <label for="comentarios">Comentarios:
+            <textarea name="coments" id="comentarios" cols="30" rows="10"></textarea>
+            </label>
+            
+            <br/>
+            <br/>
+            <!--- en src va la ruta al video en la carpeta local --->
+            <video src=""></video>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Rd1re1991l8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br/>            
+            <br/>
+
+
+            <!--- schema.org es para que el buscador ubique el contenido de nuestra pagina // MICRODATOS --->
+            <div itemscope itemtype="https://schema.org/Product">
+                <h3 itemprop="name">ZAPATILLA DEPORTIVA</h3>
+                <p itemprop="brand">Marca</p>
+                <p itemprop="price">Precio</p>
+                <p itemprop="identifier">Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ad ratione quidem exercitationem fugiat rem, assumenda optio ex. Praesentium assumenda minus laudantium quibusdam cumque, dolor accusamus et a aliquid nisi.</p>
+            </div>
+
+            <br/>
+            <input type="submit" value="Alta usuario">
+            <br/>
+            <br/>
+            <button>ENVIAR DATOS</button>
+            <!--- Borra los campos del form --->
+            <input type="reset" />
+            <br/>
+            <br/>
+            
+
+            <!--- BUSCAR CODIGO DE COMO ABRIR UNA VENTANA MODAL CON HTML5--->
+            
+            <!--- BUSCAR CODIGO DE ETIQUETA SUMMARY CON HTML5--->
+
+            
+            <script>
+                //OFUSCACION DE CODIGO
+                let _let_ = 90;
+                let edad = 80;
+
+                //capturo todas las tags dentro del form
+                document.getElementsByTagName("form");
+
+                //Evito el envio de datos del form por parte del boton submit
+                document.forms[0].addEventListener('submit',(e)=>{
+                    e.preventDefault();
+                    alert('SE CANCELO EL SUBMIT');
+                })
+
+                //SCRIPT PARA ABRIR Y CERRAR VENTANA MODAL CON UN SOLO BOTON                
+                const boton = document.getElementById("miBoton");
+                const dialog = document.getElementById("miDialog");
+                const openDialog = () => {
+                    dialog.hasAttribute("open") ? dialog.close() : dialog.show();
+                }
+                boton.onclick = openDialog;
+
+            </script>
+        </form>
+    </div>
+</body>
+</html>

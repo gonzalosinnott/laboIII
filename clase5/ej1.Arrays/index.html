@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        
+        const vec = [34, 20, 45, 10];
+        const vec2 = [...vec];///Spread Operator
+
+        vec.forEach((elemento)=>
+        {
+            console.log(elemento)
+        })
+
+        const duplicado = vec.map(elemento=> elemento % 2? elemento : elemento * 2); // devuelve elemento si es par y sino devuelve elemento * 2
+
+        console.log(vec);
+
+        console.log(duplicado);
+
+        const pares = vec.filter((elemento)=>
+        {
+            return elemento % 2 === 0; ///Devuelvo solo los pares. Es otra forma de escribir lo de arriba
+        })
+
+        console.log(pares);
+
+
+        const total = vec.reduce((prev, actual)=>
+        {
+            return prev + actual;
+        },0)
+
+        console.log(total);
+
+        const tot = ["pepe", "carlos", "ana", "luisa"]
+        .map((n) => n.toUpperCase())
+        .filter((n) => n.length > 4)
+        .reduce((p,a) => p + a.length, 0);
+
+        console.log(tot);
+
+        const vec3 = [34, 20, 45, 10];
+        console.log(vec3.splice(0, 2));       
+
+    </script>
+</body>
+</html>

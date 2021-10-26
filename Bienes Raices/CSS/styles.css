@@ -1,0 +1,559 @@
+html {
+    font-size: 62.5%/*reset para rems. 62,5% es igual a 10 px de 16 px*/
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+}
+
+
+/*Globales*/
+
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    /*es igual a 1200 px. 1 rem = 10 PX*/
+    /*Toma todo el espacio disponible pero no puede pasarse de 1200 px*/
+    margin: 0 auto;
+    /* El primer parametro es arriba, el segundo derecha, tercero abajo y 4to izquierda */
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/*Utilidades*/
+
+.seccion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.d-block {
+    display: block!important;
+}
+
+.contenido-centrado {
+    max-width: 800px;
+}
+
+
+/*Botones*/
+
+.boton {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    display: block;
+    flex: 0 0 100%;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton-amarillo {
+    background-color: #E08709;
+}
+
+.boton-verde {
+    background-color: #71B100;
+    margin-bottom: 0.5rem;
+}
+
+
+/*Header*/
+
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
+.site-header.inicio {
+    background-image: url(../img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+    /*Esta propiedad adapta la imagen al tamaño de pantalla disponible*/
+    height: 100vh;
+    /*Aumentar la altura*/
+    min-height: 60rem;
+    /*Establece la altura minima que debera tener el encabezado*/
+}
+
+.contenido-header {
+    height: 100%;
+    /*permite que el contenido hijo tome toda la altura del padre sin desplazarlo*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*alinea un contenido arriba (el menu y la navegacion) y uno abajo (el h1)*/
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenido-header {
+        text-align: left;
+    }
+}
+
+.contenido-header h1 {
+    color: #FFFFFF;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    /*ancho maximo*/
+    line-height: 2;
+    /*Interlineado*/
+}
+
+.barra {
+    padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        /**/
+        justify-content: space-between;
+        /*ubica los con un espacio entre si*/
+        align-items: center;
+        /*Alinea los elementos de la barra al mismo nivel*/
+    }
+}
+
+.navegacion a {
+    color: #ffffff;
+    text-decoration: none;
+    /*elimina el subrayado de los hipervinculos*/
+    font-size: 2.2rem;
+    display: block;
+    /*El block agrupa a todos los elementos como si fuera un conjunto de bloques apilados*/
+}
+
+@media (min-width: 768px) {
+    .navegacion a {
+        display: inline-block;
+        margin-right: 2rem;
+        /*la separacion hacia la derecha de cada elemento de 20 px */
+        font-size: 1.8rem;
+        /* esto es igual a 18 px*/
+    }
+    .navegacion a:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.navegacion a:hover {
+    /*permite que al posicionar el mouse sobre el elemento, cambie de color*/
+    color: #71B100;
+}
+
+
+/*Mobile Menu*/
+
+.mobile-menu img {
+    width: 5rem;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+.navegacion {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: block;
+    }
+}
+
+.navegacion:target {
+    display: block;
+}
+
+
+/** Iconos nosotros **/
+
+@media (min-width: 768px) {
+    .iconos-nosotros {
+        display: flex;
+        /*Posiciona los elementos uno frente al otro*/
+    }
+}
+
+.icono {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .icono {
+        flex-basis: calc(33.3% - 1rem);
+    }
+}
+
+.icono h3 {
+    text-transform: uppercase;
+}
+
+
+/*Anuncios*/
+
+@media (min-width: 768px) {
+    .contenedor-anuncios {
+        display: flex;
+        /*agrupa los anuncios horizontalmente*/
+        justify-content: space-between;
+        /*Permite que solo haya 3 arriba*/
+        flex-wrap: wrap;
+    }
+}
+
+.anuncio {
+    border: 1px solid #B5B5B5;
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+    /* flex-grow (0) permite que el contenido crezca si es posible, flex-shrink permite que el contenido se encoja
+    si es posible. basis es la base
+
+    /* flex-grow: 0;
+    flex-shrink: 0;
+    /*Esto va a hacer que los elementos no se encojan y respeten lo establecido en flex-basis 
+    .En este caso van a aparecer 3 anuncios arriba y 3 abajo
+    flex-basis: calc(33.3% - 1rem); */
+}
+
+@media (min-width: 768px) {
+    .anuncio {
+        flex: 0 0 calc(33.3% - 1rem);
+    }
+}
+
+.contenido-anuncio {
+    /* padding: 2rem; alinea el contenido tomando 2rem de todos los ejes */
+    padding: 2rem;
+}
+
+.contenido-anuncio h3,
+.contenido-anuncio p {
+    margin: 0;
+}
+
+.precio {
+    color: #71B100;
+    font-weight: 700;
+}
+
+.iconos-caracteristicas {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    max-width: 500px;
+}
+
+.iconos-caracteristicas li {
+    /*   flex: 1;*/
+    display: flex;
+}
+
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+}
+
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*Contacto*/
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    /*Separa la imagen de otros objetos*/
+    align-items: center;
+}
+
+.contenido-contacto {
+    flex: 0 0 95%;
+    /*esto detecta el tamaño disponible y lo reparte equitativamente*/
+    color: #ffffff;
+}
+
+.contenido-contacto p {
+    font-size: 1.8rem;
+}
+
+
+/*Sección inferior*/
+
+@media (min-width: 768px) {
+    .seccion-inferior {
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog {
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales {
+        flex-basis: calc(40% - 2rem);
+    }
+}
+
+.entrada-blog {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 768px) {
+    .entrada-blog .imagen {
+        flex-basis: 40%;
+    }
+    .entrada-blog .texto-entrada {
+        flex-basis: calc(60% - 3rem);
+    }
+}
+
+.texto-entrada a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.texto-entrada h4::after {
+    content: '';
+    display: block;
+    width: 15rem;
+    height: .5rem;
+    background-color: #71B100;
+    margin-top: 1rem;
+}
+
+.texto-entrada span {
+    color: #E08709;
+}
+
+
+/*Testimoniales*/
+
+.testimonial {
+    background-color: #71B100;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    /*Permite las esquinas redondeadas del boton*/
+}
+
+.testimonial p {
+    text-align: right;
+}
+
+.testimonial blockquote::before {
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    left: -2rem;
+}
+
+.testimonial blockquote {
+    position: relative;
+    padding-left: 5rem;
+    font-weight: 300;
+}
+
+
+/* Footer */
+
+.site-footer {
+    background-color: #333333;
+    margin: 0;
+}
+
+.contenedor-footer {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenedor-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
+}
+
+
+/*Codigos para paginas internas*/
+
+
+/*Nosotros*/
+
+.contenido-nosotros {
+    display: block;
+    padding: 1rem;
+}
+
+@media (min-width: 768PX) {
+    .contenido-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: 50% 50%;  tambien puede ser : 1fr 1fr siendo fr una fraccion*/
+        grid-column-gap: 2rem;
+    }
+}
+
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+
+
+/*Anuncio*/
+
+.resumen-propiedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/*Contacto*/
+
+form p {
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    margin: 2rem 0 0 0;
+}
+
+legend {
+    font-size: 2rem;
+    color: #333333;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+input:not([type="submit"]),
+textarea,
+select {
+    /*Selecciona todos los inputs excluyendo los de tipo submit*/
+    padding: 1rem;
+    display: block;
+    width: 98%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+
+/*input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    Esto va a hacer que se aplique el diseño a todo objeto de entrada que reciba text
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+    /*Esquinas redondeadas*/
+
+input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    height: 20rem;
+}
+
+.forma-contacto {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}

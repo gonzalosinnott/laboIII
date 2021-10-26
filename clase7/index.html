@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>CRUD Personas</h1>
+    </header>
+    <section class="form-persona">
+        <h2>ALTA PERSONA</h2>
+        <form class="formulario">
+            <input type="text" name="txtNombre" placeholder="Nombre" autocomplete="off" required>
+            <br>
+            <input type="text" name="txtApellido" placeholder="Apellido" autocomplete="off" required>
+            <br>
+            <input type="number" name="txtEdad" placeholder="Edad" autocomplete="off" min="18" max="65" required>
+            <br>
+            <input type="email" name="txtEmail" placeholder="Email" autocomplete="off" required>
+            <br>
+            <fieldset>
+                <legend>GENERO</legend>
+                <input type="radio" name="rdoGenero" value="masculino" >MASCULINO
+                <input type="radio" name="rdoGenero" value="femenino" >FEMENINO
+            </fieldset>
+            <br>
+            <input type="submit" value="Enviar">
+            <input type="button" value="Eliminar" id="btnDelete">
+            <input type="hidden" value="txtId">
+        </form>
+    </section>
+    <section class="lista-persona">
+        <h2>LISTADO PERSONAS</h2>
+        <div id="divTabla"></div>
+    </section>
+
+</body>
+</html>
+

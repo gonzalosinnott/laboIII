@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const obj = {
+            nombre : "Raul",
+            edad : 45
+        }
+        
+        const mascota = {
+            nombre : "Bobby",
+            edad : 3,
+            tipo: "Perro"
+        }
+
+        const obj1 = {
+            nombre : "Gonzalo",
+            edad : 31,
+            saludar : function() {
+                console.log(`Hola me llamo ${this.nombre} y tengo ${this.edad} años`);
+            },
+            sumar : function(valor) {
+                return this.edad + valor;
+            }
+        }
+
+        const metodo = obj1.saludar;
+        //Metodo call
+        metodo.call(obj);
+
+        metodo.call(obj1);
+
+        metodo.call(mascota);
+        
+        //Metodo apply
+        const metodo2 = obj1.sumar;
+        
+        console.log(metodo2.apply(obj, [7]));
+
+        console.log(metodo2.apply(obj1, [7]));
+
+        //metodo bind
+        const metodo3 = obj1.sumar.bind(obj);
+
+        console.log(metodo3(6));
+
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

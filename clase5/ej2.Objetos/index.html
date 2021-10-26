@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    
+
+<script>
+     obj1 = new Object();
+        obj2 = {};
+        
+        // const obj3 = {
+        //     nombre: "Juan",
+        //     edad: 30,
+        //     hambre: true
+        // }
+        
+        // console.log(obj3.nombre);
+        // console.log(obj3["nombre"]);
+
+        // for(const key in obj3){
+        //     console.log(obj3[key]); // para ver los valores
+        //     console.log(key);      // para ver las claves
+        // }
+
+        function Persona(n, e, h){
+            // this.nombre = n;
+            let _nombre = n;  // puede servir como atributo privado, no puedo utilizarlo fuera del scope del constructor
+            this.edad = e;
+            this. hambre = h;
+
+            // this.saludar = function(){
+            //     console.log(`Hola, me llamo ${_nombre}`);
+            // }
+
+            this.setNombre = function(value){
+                _nombre = value;
+            }
+
+            this.getNombre = function(){
+                return _nombre;
+            }
+        }
+
+        Persona.prototype.saludar = function(){  // se pone aca para que no se carge en memoria por cada instancia que tenga el codigo de esta funcion, es propio del prototipo (metodos estaticos C#)
+                console.log(`Hola, me llamo ${this.getNombre()}`);
+        }
+
+        function Empleado(l, n, e, h){
+            let _legajo = l;
+
+            Persona.call(this, n, e, h);  // cada this de Persona, va a referir al empleado que se esta creando
+
+            this.setLegajo = function(value){
+                _legajo = value;
+            }
+
+            this.getLegajo = function(){
+                return _legajo;
+            }
+        }
+        
+        Object.setPrototypeOf(Empleado.prototype, Persona.prototype);        
+        
+        const p1 = new Persona("Juan", 24, true);
+        p1.saludar();
+        console.log("nombre:", p1.getNombre());
+        p1.setNombre("Juani");
+        console.log("nombre:", p1.getNombre());
+        console.log(p1);
+        
+        const e1 = new Empleado(123, "Jorge", 33, false);
+        console.log(e1);
+        console.log("legajo:", e1.getLegajo());
+        console.log("nombre:", e1.getNombre());
+
+        e1.saludar();
+
+</script>
+</body>
+</html>
