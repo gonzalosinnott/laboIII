@@ -1,0 +1,156 @@
+*{
+  font-family: 'Roboto Mono', monospace;
+}
+
+.icon-bar {
+  width: 100%; 
+  background-color: rgb(24, 122, 233); 
+  overflow: auto; 
+}
+
+.icon-bar a {
+  float: left;
+  text-align: center; 
+  width: 20%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 50px; 
+}
+
+.icon-bar:hover a:hover {
+  background-color: rgb(25, 59, 97);
+}
+
+.active {
+  background-color: #1a6449;
+}
+
+.logo {
+  max-width: 15%;
+  height:auto;
+}
+
+.banner {
+  background-image: url(./assets/banner.jpg);
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+}
+
+.container {
+  width: auto;
+  background: rgb(250, 250, 250);
+  padding: 20px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+body{
+background: #72a4f046
+}
+
+footer{
+  bottom: 10px;
+  width: 100%;
+  background-color: rgb(24, 122, 233); 
+  overflow: auto; 
+  text-align: center;
+}
+
+.footer-content{
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.form-style{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(132, 199, 219);
+}
+
+.form-style:focus {
+  border: 3px solid #555;
+}
+
+fieldset{
+  border-color:rgb(132, 199, 219);
+ }
+
+.radio {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.inputWithIcon input[type="number"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+ 
+.inputWithIcon i {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  padding: 12px 8px;
+  color: rgb(0, 0, 0);
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+td{
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-style {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  font-size: 2em;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  bottom: 10%;
+  right: 4%;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
+#submit{
+  background-color: rgb(32, 153, 16);
+}
+
+#delete{
+  background-color: rgb(172, 15, 15);
+}
+
+#cancel{
+  background-color: rgb(224, 211, 16);
+}
+
+
+
+
+
+
+
+
+

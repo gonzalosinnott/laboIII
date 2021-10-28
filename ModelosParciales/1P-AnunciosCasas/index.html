@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+   
+    <title>1° PARCIAL LABORATORIO III</title>
+  </head>
+  <body>
+    <header>
+      <nav class="icon-bar">
+        <a class="active" href="#"
+          ><img class="logo" src="./assets/logo.png" alt="logo"
+        /></a>
+        <a class="links" href="#"><i class="fa fa-bars"></i></a>
+        <a class="links" href="#"><i class="fa fa-search"></i></a>
+        <a class="links" href="#"><i class="fa fa-envelope"></i></a>
+        <a class="links" href="#"><i class="fa fa-globe"></i></a>
+      </nav>
+    </header>
+
+    <div>
+      <img class="banner" src="./assets/banner.jpg" alt="banner" />
+    </div>
+    
+    <br>
+
+    <main>
+      <div class="container">
+        
+        <form>          
+          <!-- TITULO -->
+          <input class="form-style" type="text" id="titulo" name="titulo" placeholder="TITULO" autocomplete="off" required>
+  
+
+          <!-- VENTA O ALQUILER -->
+          <fieldset>
+            <legend>TIPO DE TRANSACCION</legend>
+            <div class="radio">
+              <input type="radio" id="venta" name="transaccion" value="VENTA">
+              <label for="venta">VENTA</label><br>
+              <input type="radio" id="alquiler" name="transaccion" value="ALQUILER">
+              <label for="css">ALQUILER</label><br>
+            </div>
+          </fieldset>
+          
+          <!-- DESCRIPCION -->          
+          <textarea class="form-style" id="descripcion" name="descripcion" rows="2"  placeholder="DESCRIPCION" autocomplete="off" required></textarea>
+          
+          <!-- PRECIO -->
+          <div class="inputWithIcon">
+            <input class="form-style" type="number" id="precio" name="precio" placeholder="PRECIO" autocomplete="off" required>
+            <i class="fa fa-money money"></i>
+          </div>
+          
+          <!-- CANTIDAD BAÑOS -->
+          <div class="inputWithIcon">
+            <input class="form-style"type="number" id="banos" name="banos" placeholder="CANTIDAD DE BAÑOS" autocomplete="off" required>
+            <i class="fa fa-bath" aria-hidden="true"></i>
+          </div>
+
+          <!-- CANTIDAD AUTOS -->
+          <div class="inputWithIcon">
+            <input class="form-style" type="number" id="autos" name="autos" placeholder="CAPACIDAD GARAGE" autocomplete="off" required>
+            <i class="fa fa-car" aria-hidden="true"></i>
+          </div>
+          
+          <!-- CANTIDAD DORMITORIOS -->
+          <div class="inputWithIcon">
+            <input class="form-style" type="number" id="dormitorios" name="dormitorios" placeholder="CANTIDAD DE HABITACIONES" autocomplete="off" required>
+            <i class="fa fa-bed" aria-hidden="true"></i>
+          </div>
+          
+          <table>
+            <tr>
+              <td><button class="btn-style" type="submit" id="submit"><i class="fa fa-check" aria-hidden="true"></i></button></td>
+              <td><button class="btn-style" id="delete"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+              <td><button class="btn-style" id="cancel"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+            </tr>
+          </table>
+          
+          
+          
+
+
+
+        </form>
+        
+        
+
+        
+      </div>
+    </main>
+
+    <br>
+
+    <footer>
+      <div class="footer-content">&copy; 2021 - Gonzalo Sinnott Segura -</div>
+    </footer>
+  </body>
+  
+</html>
