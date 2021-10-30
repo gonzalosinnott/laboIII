@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./js/scripts.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,69 +33,74 @@
     <br>
 
     <main>
-      <div class="container">
-        
-        <form>          
-          <!-- TITULO -->
-          <input class="form-style" type="text" id="titulo" name="titulo" placeholder="TITULO" autocomplete="off" required>
-  
+      <div class="container" id="parent">
+        <section class="carga-datos" id="narrow">
+          <h2>CARGA DE DATOS</h2>
+          <form id="frm"> 
 
-          <!-- VENTA O ALQUILER -->
-          <fieldset>
-            <legend>TIPO DE TRANSACCION</legend>
-            <div class="radio">
-              <input type="radio" id="venta" name="transaccion" value="VENTA">
-              <label for="venta">VENTA</label><br>
-              <input type="radio" id="alquiler" name="transaccion" value="ALQUILER">
-              <label for="css">ALQUILER</label><br>
+            <!-- ID -->
+            <input type="hidden" id="txtId" name="txtId">
+
+            <!-- TITULO -->
+            <input class="form-style" type="text" id="txtTitulo" name="txtTitulo" placeholder="TITULO" autocomplete="off" required>
+    
+
+            <!-- VENTA O ALQUILER -->
+            <fieldset>
+              <legend>TIPO DE TRANSACCION</legend>
+              <div class="radio">
+                <input type="radio" id="venta" name="txtTransaccion" value="VENTA">
+                <label for="venta">VENTA</label><br>
+                <input type="radio" id="alquiler" name="txtTransaccion" value="ALQUILER">
+                <label for="css">ALQUILER</label><br>
+              </div>
+            </fieldset>
+            
+            <!-- DESCRIPCION -->          
+            <textarea class="form-style" id="txtDescripcion" name="txtDescripcion" rows="2"  placeholder="DESCRIPCION" autocomplete="off" required></textarea>
+            
+            <!-- PRECIO -->
+            <div class="inputWithIcon">
+              <input class="form-style" type="number" id="txtPrecio" name="txtPrecio" placeholder="PRECIO" autocomplete="off" required>
+              <i class="fa fa-money money"></i>
             </div>
-          </fieldset>
-          
-          <!-- DESCRIPCION -->          
-          <textarea class="form-style" id="descripcion" name="descripcion" rows="2"  placeholder="DESCRIPCION" autocomplete="off" required></textarea>
-          
-          <!-- PRECIO -->
-          <div class="inputWithIcon">
-            <input class="form-style" type="number" id="precio" name="precio" placeholder="PRECIO" autocomplete="off" required>
-            <i class="fa fa-money money"></i>
-          </div>
-          
-          <!-- CANTIDAD BAÑOS -->
-          <div class="inputWithIcon">
-            <input class="form-style"type="number" id="banos" name="banos" placeholder="CANTIDAD DE BAÑOS" autocomplete="off" required>
-            <i class="fa fa-bath" aria-hidden="true"></i>
-          </div>
+            
+            <!-- CANTIDAD BAÑOS -->
+            <div class="inputWithIcon">
+              <input class="form-style"type="number" id="txtBanos" name="txtBanos" placeholder="CANTIDAD DE BAÑOS" autocomplete="off" required>
+              <i class="fa fa-bath" aria-hidden="true"></i>
+            </div>
 
-          <!-- CANTIDAD AUTOS -->
-          <div class="inputWithIcon">
-            <input class="form-style" type="number" id="autos" name="autos" placeholder="CAPACIDAD GARAGE" autocomplete="off" required>
-            <i class="fa fa-car" aria-hidden="true"></i>
-          </div>
-          
-          <!-- CANTIDAD DORMITORIOS -->
-          <div class="inputWithIcon">
-            <input class="form-style" type="number" id="dormitorios" name="dormitorios" placeholder="CANTIDAD DE HABITACIONES" autocomplete="off" required>
-            <i class="fa fa-bed" aria-hidden="true"></i>
-          </div>
-          
-          <table>
-            <tr>
-              <td><button class="btn-style" type="submit" id="submit"><i class="fa fa-check" aria-hidden="true"></i></button></td>
-              <td><button class="btn-style" id="delete"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-              <td><button class="btn-style" id="cancel"><i class="fa fa-times" aria-hidden="true"></i></button></td>
-            </tr>
-          </table>
-          
-          
-          
+            <!-- CANTIDAD AUTOS -->
+            <div class="inputWithIcon">
+              <input class="form-style" type="number" id="txtAutos" name="txtAutos" placeholder="CAPACIDAD GARAGE" autocomplete="off" required>
+              <i class="fa fa-car" aria-hidden="true"></i>
+            </div>
+            
+            <!-- CANTIDAD DORMITORIOS -->
+            <div class="inputWithIcon">
+              <input class="form-style" type="number" id="txtDormitorios" name="txtDormitorios" placeholder="CANTIDAD DE HABITACIONES" autocomplete="off" required>
+              <i class="fa fa-bed" aria-hidden="true"></i>
+            </div>
+            
+            &nbsp&nbsp
+            <div class="buttons">
+              <button class="btn-style" type="submit" id="btnSubmit" name="btnSubmit"><i class="fa fa-check" aria-hidden="true"></i></button>
+              &nbsp&nbsp&nbsp&nbsp&nbsp
+              <button class="btn-style" id="btnDelete" name="btnDelete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              &nbsp&nbsp&nbsp&nbsp&nbsp
+              </td><button class="btn-style" type="reset" id="btnCancel" name="btnCancel"><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
 
-
-
-        </form>
-        
-        
+          </form>        
+        </section>
 
         
+        <section class="lista-elementos" id="wide">
+          <h2>LISTADO DE ANUNCIOS</h2>
+          <div id="divTabla"></div>
+        </section>
+
       </div>
     </main>
 

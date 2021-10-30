@@ -32,7 +32,7 @@
 }
 
 .banner {
-  background-image: url(./assets/banner.jpg);
+  background-image: url(../assets/banner.jpg);
   background-position: center center;
   background-size: cover;
   width: 100%;
@@ -73,6 +73,8 @@ footer{
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid rgb(132, 199, 219);
+  background-color: #ffffff00;
+
 }
 
 .form-style:focus {
@@ -107,15 +109,9 @@ fieldset{
   color: rgb(0, 0, 0);
 }
 
-table{
+.buttons{
   width: 100%;
-  border-collapse: collapse;
-
-}
-
-td{
-  padding: 10px;
-  text-align: center;
+  text-align: center;  
 }
 
 .btn-style {
@@ -134,16 +130,61 @@ td{
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 }
 
-#submit{
+#btnSubmit{
   background-color: rgb(32, 153, 16);
 }
 
-#delete{
+#btnDelete{
   background-color: rgb(172, 15, 15);
 }
 
-#cancel{
+#btnCancel{
   background-color: rgb(224, 211, 16);
+}
+
+#parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+#narrow {
+  width: 350px;
+
+}
+#wide {
+  flex: 1;
+  padding-left: 30px;
+}
+
+h2{
+  text-align: center;
+}
+
+#divTabla {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+
+}
+
+#divTabla td, #divTabla th {
+  padding: 8px;
+  text-align: center;
+}
+
+#divTabla tr:nth-child(even){background-color: #f2f2f2;}
+
+#divTabla tr:hover {background-color: #ddd;}
+
+#divTabla th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgb(132, 199, 219);
+  color: white;
+}
+
+table{
+  width: 100%;
 }
 
 

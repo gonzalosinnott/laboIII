@@ -1,11 +1,3 @@
-//FORMA POCO EFICIENTE DE REGISTRAR QUE FILA SE CLICKEA
-const handleClick =(e)=>{
-    //DEVUELVE POR CONSOLA EL ID DE LA FILA SELECCIONADA
-    console.log(e.target.parentElement.dataset.id);
-}
-
-
-
 export const crearTabla = (data)=>{
 
     const tabla = document.createElement("table");
@@ -25,31 +17,25 @@ export const crearTabla = (data)=>{
     thead.appendChild(cabecera);
     tabla.appendChild(thead);
 
-    thead.style.backgroundColor = 'green'
     
     //cargo el tbody
-    data.forEach((element,index) => {
+    data.forEach((element) => {
 
         const tr = document.createElement("tr");
 
         for (const key in element) {
-            if(key === "id"){////revisar id
-                tr.setAttribute("data-id", element[key]);
+            if(key === "id"){
+                tr.setAttribute("id", element[key]);
             }
             else{
                 const td = document.createElement("td");
                 td.textContent = element[key];
-                //td.addEventListener("click", handleClick); FORMA POCO EFICIENTE
 
                 tr.appendChild(td);
             }
         }
 
-        tbody.appendChild(tr);
-        
-        if(index % 2){
-            tr.style.backgroundColor = '#ccc'
-        }
+        tbody.appendChild(tr);    
     });
 
     tabla.appendChild(tbody)
