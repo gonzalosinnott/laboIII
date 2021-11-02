@@ -17,14 +17,15 @@ window.addEventListener("click", (e)=>{
 
     if(e.target.matches("td")){
         
-        let id = e.target.parentElement.id;
-
+        const id = e.target.parentElement.id;
+        console.log(id);
         cargarFormulario(anuncios.find((anuncio)=> anuncio.id == id));
     }
     else if(e.target.matches("#btnDelete")){
+        console.log("borrando");
         handlerDelete(parseInt($formulario.txtId.value));
-        $formulario.reset();
-    }
+        
+    }    
 });
 
 $formulario.addEventListener("submit", (e) => {
@@ -36,20 +37,26 @@ $formulario.addEventListener("submit", (e) => {
     const {txtId, txtTitulo, txtTransaccion, txtDescripcion, txtPrecio, txtBanos, txtAutos, txtDormitorios} = $formulario;
     
     ///MODIFICAR DE ACUERDO A LA CONSIGNA (CAMPOS DEL OBJETO)
-    const formAnuncio = new Anuncio(txtId.value, txtTitulo.value, txtTransaccion.value, txtDescripcion.value, txtPrecio.value, txtBanos.value, txtAutos.value, txtDormitorios.value);
+    const formAnuncio = new Anuncio(parseInt(txtId.value), txtTitulo.value, txtTransaccion.value, txtDescripcion.value, txtPrecio.value, txtBanos.value, txtAutos.value, txtDormitorios.value);
     
-    if(formAnuncio.txtId === ''){
+    console.log("ANUNCIO:");
+    console.log($formulario.txtId.value);
+
+    if($formulario.txtId.value === ''){
         //ALTA
         formAnuncio.id = Date.now();
-        console.log(formAnuncio);
         handlerCreate(formAnuncio);
+        console.log(formAnuncio);
     }
     else{
         //UPDATE
+        formAnuncio.id = parseInt(formAnuncio.id);
         handlerUpdate(formAnuncio);
     }
 
     $formulario.reset();
+    $formulario.txtId.value = '';
+    console.log($formulario.txtId.value);
 });
 
 ///CREACION DE ANUNCIO NUEVO
@@ -58,34 +65,49 @@ const handlerCreate = (nuevoAnuncio)=>{
     anuncios.push(nuevoAnuncio);
     actualizarStorage(anuncios);
     actualizarTabla();
+    console.log(anuncios);
+
 };
 
 ///ACTUALIZACION DE ANUNCIO
 const handlerUpdate = (anuncioEditado)=>{
 
-    let indice = anuncios.findIndex((anuncios)=>{
-        return anuncios.id == anuncioEditado.id;
+    console.log(anuncioEditado);
+    let indice = anuncios.findIndex((anuncio)=>{
+        return anuncio.id == anuncioEditado.id;
     })
 
     anuncios.splice(indice, 1);
     anuncios.push(anuncioEditado);
 
-    actualizarStorage(anuncioEditado);
+    actualizarStorage(anuncios);
     actualizarTabla();
+    console.log(anuncios);
 };
 
 
 //ELIMINAR ANUNCIO POR ID
 const handlerDelete = (id) => {
 
-    let indice = anuncios.findIndex((anuncio)=>{
-        return anuncio.id == id;
-    })
 
-    anuncios.splice(indice, 1);
+    console.log("llego el delete");
 
-    actualizarStorage(anuncios);
-    actualizarTabla();
+    if (confirm("Quiere eliminar el anuncio ?")) {
+        const indice = anuncios.findIndex((anuncio)=>{
+            return anuncio.id == id;
+        })
+
+        anuncios.splice(indice, 1);
+
+        actualizarStorage(anuncios);
+        actualizarTabla();
+        $formulario.reset();
+        console.log(anuncios);
+    } 
+    else{
+        console.log("no se elimino");
+        $formulario.reset();
+    }
 };
 
 ///ACTUALIZAR EL LOCALSTORAGE
@@ -102,7 +124,7 @@ function actualizarTabla() {
         while ($divTabla.hasChildNodes()) {
             $divTabla.removeChild($divTabla.firstElementChild);
         }
-        const data = JSON.parse(localStorage.getItem("personas"));
+        const data = JSON.parse(localStorage.getItem("anuncios"));
         $divTabla.appendChild(crearSpinner());
 
         setTimeout(() => {
@@ -135,7 +157,7 @@ function cargarFormulario(anuncio){
     ///MODIFICAR DE ACUERDO A LA CONSIGNA
     const {txtId, txtTitulo, txtTransaccion, txtDescripcion, txtPrecio, txtBanos, txtAutos, txtDormitorios} = $formulario;
 
-    txtId.value = anuncio.id;
+    txtId.value = parseInt(anuncio.id);
     txtTitulo.value= anuncio.titulo;
     txtTransaccion.value = anuncio.transaccion;
     txtDescripcion.value = anuncio.descripcion;
