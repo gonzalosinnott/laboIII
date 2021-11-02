@@ -13,6 +13,7 @@ export const crearTabla = (data)=>{
             th.appendChild(contenido);
             cabecera.appendChild(th);
             
+            ///CABECERA CUSTOM - CAMBIAR DEPENDIENDO DE LA TABLA
             switch(key){
                 case "titulo":
                     th.textContent = "Título";

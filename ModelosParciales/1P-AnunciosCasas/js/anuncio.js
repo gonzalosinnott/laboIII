@@ -1,6 +1,5 @@
 import AnuncioBase from "./anuncio-base.js";
 
-
 ///MODIFICAR DE ACUERDO AL TIPO DE ANUNCIO QUE SE PIDA
 export class Anuncio extends AnuncioBase {
     constructor(id, titulo, transaccion, descripcion, precio, num_banos, num_autos, num_dormitorios){
