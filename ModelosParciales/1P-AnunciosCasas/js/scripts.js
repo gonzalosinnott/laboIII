@@ -11,6 +11,19 @@ actualizarTabla();
 
 localStorage.setItem('anuncios', JSON.stringify(anuncios));
 
+function resetForm(){
+    $formulario.reset();
+    $formulario.txtId.value = '';
+    const tituloForm = document.getElementById("tituloForm");
+    tituloForm.textContent = "CARGAR ANUNCIO";
+
+    const botonEliminar = document.getElementById("btnDelete");
+    botonEliminar.hidden = true;
+
+    const botonCancelar = document.getElementById("btnCancel");
+    botonCancelar.hidden = true;
+}
+
 ///RECUPERACION DE ID POR DELEGACION DE EVENTOS
 ///MANEJO DEL BOTON DELETE
 window.addEventListener("click", (e)=>{
@@ -20,11 +33,16 @@ window.addEventListener("click", (e)=>{
         const id = e.target.parentElement.id;
         console.log(id);
         cargarFormulario(anuncios.find((anuncio)=> anuncio.id == id));
-    }
-    else if(e.target.matches("#btnDelete")){
-        console.log("borrando");
+
+        const tituloForm = document.getElementById("tituloForm");
+        tituloForm.textContent = "MODIFICAR / BORRAR ANUNCIO : " + id;
+
+    }else if(e.target.matches("#btnDelete")){
         handlerDelete(parseInt($formulario.txtId.value));
-        
+        resetForm();        
+    }
+    else if(e.target.matches("#btnCancel")){
+        resetForm();        
     }    
 });
 
@@ -44,7 +62,7 @@ $formulario.addEventListener("submit", (e) => {
 
     if($formulario.txtId.value === ''){
         //ALTA
-        formAnuncio.id = Date.now();
+        formAnuncio.id = getMaxId() + 1;
         handlerCreate(formAnuncio);
         console.log(formAnuncio);
     }
@@ -53,11 +71,18 @@ $formulario.addEventListener("submit", (e) => {
         formAnuncio.id = parseInt(formAnuncio.id);
         handlerUpdate(formAnuncio);
     }
-
-    $formulario.reset();
-    $formulario.txtId.value = '';
-    console.log($formulario.txtId.value);
+    resetForm();
 });
+
+///DEVUELVE EL ID MAXIMO DE LOS ANUNCIOS
+function getMaxId() {
+    if(anuncios.length == 0){
+        return 0 ;
+    }
+    else{
+    return anuncios.reduce((prev, current) => (+prev.id > +current.id) ? prev : current).id;
+    }
+}
 
 ///CREACION DE ANUNCIO NUEVO
 const handlerCreate = (nuevoAnuncio)=>{
@@ -66,7 +91,6 @@ const handlerCreate = (nuevoAnuncio)=>{
     actualizarStorage(anuncios);
     actualizarTabla();
     console.log(anuncios);
-
 };
 
 ///ACTUALIZACION DE ANUNCIO
@@ -89,7 +113,6 @@ const handlerUpdate = (anuncioEditado)=>{
 //ELIMINAR ANUNCIO POR ID
 const handlerDelete = (id) => {
 
-
     console.log("llego el delete");
 
     if (confirm("Quiere eliminar el anuncio ?")) {
@@ -101,12 +124,6 @@ const handlerDelete = (id) => {
 
         actualizarStorage(anuncios);
         actualizarTabla();
-        $formulario.reset();
-        console.log(anuncios);
-    } 
-    else{
-        console.log("no se elimino");
-        $formulario.reset();
     }
 };
 
@@ -154,6 +171,8 @@ function crearSpinner() {
 ///CARGAR FORMULARIO A PARTIR DEL ID DADO POR EL CLICK EN LA TABLA
 function cargarFormulario(anuncio){
 
+    mostrarBotones();
+
     ///MODIFICAR DE ACUERDO A LA CONSIGNA
     const {txtId, txtTitulo, txtTransaccion, txtDescripcion, txtPrecio, txtBanos, txtAutos, txtDormitorios} = $formulario;
 
@@ -167,3 +186,12 @@ function cargarFormulario(anuncio){
     txtDormitorios.value= anuncio.num_dormitorios;
 
 };
+
+function mostrarBotones(){
+
+    const botonEliminar = document.getElementById("btnDelete");
+    botonEliminar.hidden = false;
+
+    const botonCancelar = document.getElementById("btnCancel");
+    botonCancelar.hidden = false;
+}

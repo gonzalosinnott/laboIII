@@ -49,9 +49,9 @@
             <fieldset>
               <legend>TIPO DE TRANSACCION</legend>
               <div class="radio">
-                <input type="radio" id="venta" name="txtTransaccion" value="VENTA">
+                <input type="radio" id="venta" name="txtTransaccion" value="VENTA" required>
                 <label for="venta">VENTA</label><br>
-                <input type="radio" id="alquiler" name="txtTransaccion" value="ALQUILER">
+                <input type="radio" id="alquiler" name="txtTransaccion" value="ALQUILER" required>
                 <label for="css">ALQUILER</label><br>
               </div>
             </fieldset>
@@ -83,12 +83,12 @@
               <i class="fa fa-bed" aria-hidden="true"></i>
             </div>
             
-            <div class="buttons">
-              
-               
+            <br>
 
-              <input type="submit" id="btnSubmit" value="Guardar">
-              <input type="button" id="btnDelete" name ="eliminar" value="Eliminar">
+            <div class="buttons">               
+              <input class="btn-style" type="submit" id="btnSubmit" style="font-family: FontAwesome" value="&#xf00c;">
+              <input class="btn-style" type="button" id="btnDelete" style="font-family: FontAwesome" value="&#xf1f8;" hidden="hidden">
+              <input class="btn-style" type="reset"  id="btnCancel" style="font-family: FontAwesome" value="&#xf00d;" hidden="hidden">
             </div>
 
           </form>        
