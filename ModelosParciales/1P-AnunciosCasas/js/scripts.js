@@ -31,7 +31,6 @@ window.addEventListener("click", (e)=>{
     if(e.target.matches("td")){
         
         const id = e.target.parentElement.id;
-        console.log(id);
         cargarFormulario(anuncios.find((anuncio)=> anuncio.id == id));
 
         const tituloForm = document.getElementById("tituloForm");
@@ -57,9 +56,6 @@ $formulario.addEventListener("submit", (e) => {
     ///MODIFICAR DE ACUERDO A LA CONSIGNA (CAMPOS DEL OBJETO)
     const formAnuncio = new Anuncio(parseInt(txtId.value), txtTitulo.value, txtTransaccion.value, txtDescripcion.value, txtPrecio.value, txtBanos.value, txtAutos.value, txtDormitorios.value);
     
-    console.log("ANUNCIO:");
-    console.log($formulario.txtId.value);
-
     if($formulario.txtId.value === ''){
         //ALTA
         formAnuncio.id = getMaxId() + 1;
@@ -113,8 +109,6 @@ const handlerUpdate = (anuncioEditado)=>{
 //ELIMINAR ANUNCIO POR ID
 const handlerDelete = (id) => {
 
-    console.log("llego el delete");
-
     if (confirm("Quiere eliminar el anuncio ?")) {
         const indice = anuncios.findIndex((anuncio)=>{
             return anuncio.id == id;
@@ -150,8 +144,8 @@ function actualizarTabla() {
             }
             const data = JSON.parse(localStorage.getItem('anuncios'));
             if (data) {
-                $divTabla.appendChild(crearTabla(anuncios));
-                sortTabla();
+                sortTabla(anuncios);
+                $divTabla.appendChild(crearTabla(anuncios));                
             }
         }, 4000);
     }
@@ -163,7 +157,7 @@ function crearSpinner() {
   
     spinner.width = 300;
     
-    spinner.src = "./assets/spin2.gif";
+    spinner.src = "./assets/spin.gif";
     spinner.alt = "Progressbar";
   
     return spinner;
@@ -196,6 +190,10 @@ function mostrarBotones() {
     botonCancelar.hidden = false;
 };
 
-function sortTabla() {  
+function sortTabla(array) {
+    array.sort((a, b) => {
+        ///CAMBIAR POR EL CAMPO QUE SE QUIERE ORDENAR
+        return a.precio - b.precio;
+    });  
         
 };
