@@ -61,31 +61,32 @@
             
             <!-- PRECIO -->
             <div class="inputWithIcon">
-              <input class="form-style" type="number" id="txtPrecio" name="txtPrecio" placeholder="PRECIO" autocomplete="off" required>
+              <input class="form-style" type="number" id="txtPrecio" name="txtPrecio" placeholder="PRECIO" autocomplete="off" required min="1" >
               <i class="fa fa-money money"></i>
             </div>
             
             <!-- CANTIDAD BAÑOS -->
             <div class="inputWithIcon">
-              <input class="form-style"type="number" id="txtBanos" name="txtBanos" placeholder="CANTIDAD DE BAÑOS" autocomplete="off" required>
+              <input class="form-style"type="number" id="txtBanos" name="txtBanos" placeholder="CANTIDAD DE BAÑOS" autocomplete="off" required min="1">
               <i class="fa fa-bath" aria-hidden="true"></i>
             </div>
 
             <!-- CANTIDAD AUTOS -->
             <div class="inputWithIcon">
-              <input class="form-style" type="number" id="txtAutos" name="txtAutos" placeholder="CAPACIDAD GARAGE" autocomplete="off" required>
+              <input class="form-style" type="number" id="txtAutos" name="txtAutos" placeholder="CAPACIDAD GARAGE" autocomplete="off" required min="0">
               <i class="fa fa-car" aria-hidden="true"></i>
             </div>
             
             <!-- CANTIDAD DORMITORIOS -->
             <div class="inputWithIcon">
-              <input class="form-style" type="number" id="txtDormitorios" name="txtDormitorios" placeholder="CANTIDAD DE HABITACIONES" autocomplete="off" required>
+              <input class="form-style" type="number" id="txtDormitorios" name="txtDormitorios" placeholder="CANTIDAD DE HABITACIONES" autocomplete="off" required min="1">
               <i class="fa fa-bed" aria-hidden="true"></i>
             </div>
             
             <br>
 
-            <div class="buttons">               
+            <!-- BOTONES --> 
+            <div class="buttons">             
               <input class="btn-style" type="submit" id="btnSubmit" style="font-family: FontAwesome" value="&#xf00c;">
               <input class="btn-style" type="button" id="btnDelete" style="font-family: FontAwesome" value="&#xf1f8;" hidden="hidden">
               <input class="btn-style" type="reset"  id="btnCancel" style="font-family: FontAwesome" value="&#xf00d;" hidden="hidden">

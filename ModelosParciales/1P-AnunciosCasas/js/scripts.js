@@ -35,7 +35,7 @@ window.addEventListener("click", (e)=>{
         cargarFormulario(anuncios.find((anuncio)=> anuncio.id == id));
 
         const tituloForm = document.getElementById("tituloForm");
-        tituloForm.textContent = "MODIFICAR / BORRAR ANUNCIO : " + id;
+        tituloForm.textContent = "MODIFICAR / BORRAR ANUNCIO: ID " + id;
 
     }else if(e.target.matches("#btnDelete")){
         handlerDelete(parseInt($formulario.txtId.value));
@@ -151,6 +151,7 @@ function actualizarTabla() {
             const data = JSON.parse(localStorage.getItem('anuncios'));
             if (data) {
                 $divTabla.appendChild(crearTabla(anuncios));
+                sortTabla();
             }
         }, 4000);
     }
@@ -169,7 +170,7 @@ function crearSpinner() {
 };
 
 ///CARGAR FORMULARIO A PARTIR DEL ID DADO POR EL CLICK EN LA TABLA
-function cargarFormulario(anuncio){
+function cargarFormulario(anuncio) {
 
     mostrarBotones();
 
@@ -184,14 +185,17 @@ function cargarFormulario(anuncio){
     txtBanos.value= anuncio.num_banos;
     txtAutos.value= anuncio.num_autos;
     txtDormitorios.value= anuncio.num_dormitorios;
-
 };
 
-function mostrarBotones(){
+function mostrarBotones() {
 
     const botonEliminar = document.getElementById("btnDelete");
     botonEliminar.hidden = false;
 
     const botonCancelar = document.getElementById("btnCancel");
     botonCancelar.hidden = false;
-}
+};
+
+function sortTabla() {  
+        
+};
