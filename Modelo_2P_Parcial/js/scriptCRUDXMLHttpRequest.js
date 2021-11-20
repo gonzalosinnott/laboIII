@@ -7,18 +7,15 @@ let anuncios = [];
 
 function crearSpinner() {
   const spinner = document.createElement("img");
-
-  spinner.width = 300;
-  
   spinner.setAttribute("src", "./assets/loader.gif");
   spinner.setAttribute("alt", "loader");
-
+  spinner.width = 300;
   return spinner;
 };
 
 const limpiarSpinner = () => {
   while(divSpinner.hasChildNodes()){
-      divSpinner.removeChild(divSpinner.firstChild);
+    divSpinner.removeChild(divSpinner.firstChild);
   }
 };
 

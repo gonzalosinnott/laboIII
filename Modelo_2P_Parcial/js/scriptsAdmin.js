@@ -10,12 +10,12 @@ const $formulario = document.forms[0];
 const $divTabla = document.getElementById("divTabla");
 const divSpinner = document.querySelector(".spinner");
 
+
 getAll();
 resetForm();
 $("#createAlert").hide();
 $("#deleteAlert").hide();
 $("#modifyAlert").hide();
-
  
 window.addEventListener("click", (e)=>{
 

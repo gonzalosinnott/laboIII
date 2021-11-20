@@ -1,4 +1,5 @@
 const URL="http://localhost:3000/anuncios";
+
 const divSpinner = document.querySelector(".spinnerClientes");
 let anuncios = [];
 

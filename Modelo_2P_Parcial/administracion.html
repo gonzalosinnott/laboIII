@@ -102,7 +102,7 @@
                 <div class="inputWithIcon">
                   <input class="form-style" type="number" id="txtKms" name="txtKms" placeholder="KMs" autocomplete="off"
                     required min="0">
-                  <i class="faS fa-tachometer-alt" aria-hidden="true"></i>
+                  <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                 </div>
 
                 <div class="inputWithIcon">
@@ -120,6 +120,18 @@
                     value="&#xf1f8;" hidden="hidden">
                   <input class="btn-style" type="reset" id="btnCancel" style="font-family: FontAwesome" value="&#xf00d;"
                     hidden="hidden">
+                </div>
+
+                <br>
+                
+                <div class="alert alert-success" role="alert" id="createAlert">
+                  ANUNCIO CREADO CON EXITO
+                </div>
+                <div class="alert alert-success" role="alert" id="deleteAlert">
+                  ANUNCIO BORRADO CON EXITO
+                </div>
+                <div class="alert alert-success" role="alert" id="modifyAlert">
+                  ANUNCIO MODIFICADO CON EXITO
                 </div>
 
               </form>
@@ -144,32 +156,33 @@
                 <div class="col-xs-3">
                   <label>MAXIMO</label>
                   <i class="fas fa-dollar-sign"></i>
-                  <input class="form-control" type="number" id="txtMax" name="txtMax" placeholder="MAXIMO"
-                    readonly="readonly">
+                  <input class="form-control" type="number" id="txtMax" name="txtMax" placeholder="MAXIMO" readonly="readonly">
                 </div>
-                <div class="col-xs-3">
-                  <label >MINIMO</label>
+            
+                <div class="col-xs-3">            
+                  <label>MINIMO</label>
                   <i class="fas fa-dollar-sign"></i>
-                  <input class="form-control" type="number" id="txtMin" name="txtMin" placeholder="MINIMO"
-                    readonly="readonly">
+                  <input class="form-control" type="number" id="txtMin" name="txtMin" placeholder="MINIMO" readonly="readonly">
                 </div>
-                <div class="col-xs-3">
+            
+                <div class="col-xs-3">            
                   <label>PROMEDIO</label>
                   <i class="fas fa-dollar-sign"></i>
                   <input class="form-control" type="number" id="txtPromedio" name="txtPromedio" placeholder="PROMEDIO"
                     readonly="readonly">
                 </div>
-                <div class="col-xs-3">
+            
+                <div class="col-xs-3">            
                   <label>TOTAL</label>
                   <i class="fas fa-dollar-sign"></i>
-                  <input class="form-control" type="number" id="txtTotal" name="txtTotal" placeholder="TOTAL"
-                    readonly="readonly">
+                  <input class="form-control" type="number" id="txtTotal" name="txtTotal" placeholder="TOTAL" readonly="readonly">
                 </div>
               </div>
             </div>
             <section class="lista-elementos">
               <h2>LISTADO DE ANUNCIOS</h2>
               <div id="divTabla"></div>
+              <div class="spinner"></div>
             </section>
           </div>
         </div>

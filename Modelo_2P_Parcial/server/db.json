@@ -1,34 +1,34 @@
 {
   "anuncios": [
     {
-      "id": 2,
-      "titulo": "Aston Martin",
+      "id": 1,
+      "titulo": "Ford",
       "transaccion": "Venta",
-      "descripcion": "DBS",
-      "precio": 70000,
-      "puertas": 2,
-      "kilometros": 5000,
-      "potencia": 303
+      "descripcion": "Fiesta",
+      "precio": "300000",
+      "puertas": "5",
+      "kms": "100000",
+      "potencia": "180"
+    },
+    {
+      "id": 2,
+      "titulo": "Chevrolet",
+      "transaccion": "Alquiler",
+      "descripcion": "Corsa",
+      "precio": "150000",
+      "puertas": "3",
+      "kms": "150000",
+      "potencia": "125"
     },
     {
       "id": 3,
-      "titulo": "Dodge",
-      "transaccion": "Alquiler",
-      "descripcion": "CHARGER R/T",
-      "precio": 20000,
-      "puertas": 2,
-      "kilometros": 20000,
-      "potencia": 195
-    },
-    {
-      "id": 4,
-      "titulo": "Volkswagen",
-      "transaccion": "Alquiler",
-      "descripcion": "Golf GTI",
-      "precio": 22000,
-      "puertas": 4,
-      "kilometros": 25000,
-      "potencia": 235
+      "titulo": "Fiat",
+      "transaccion": "Permuta",
+      "descripcion": "Palio",
+      "precio": "90000",
+      "puertas": "5",
+      "kms": "200000",
+      "potencia": "100"
     }
   ]
 }
