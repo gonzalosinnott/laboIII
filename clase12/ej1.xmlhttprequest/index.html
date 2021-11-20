@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js" defer></script>
+    <link rel="stylesheet" href=".css/index.css">
+    <title>AJAX</title>
+</head>
+<body>
+    <button onclick="getPersonasAjax();">TRAER PERSONAS AJAX</button>
+    <br>
+    <button onclick="getPersonasFetchPromesas();">TRAER PERSONAS FETCH PROMESAS</button>
+    <br>
+    <button onclick="getPersonasFetchAsync();">TRAER PERSONAS FETCH ASYNC-AWAIT</button>
+    <br>
+    <button onclick="getPersonasAxiosPromesas();">TRAER PERSONAS AXIOS PROMESAS</button>
+    <br>
+    <button onclick="getPersonasAxiosAsync();">TRAER PERSONAS AXIOS ASYNC-AWAIT</button>
+    <br>
+    <button onclick="getPersonaAjaxId(3);">TRAER UNA PERSONA AJAX</button>
+    <br>
+    <button onclick="createPersonaAjax();">CREAR UNA PERSONA AJAX</button>
+    <br>
+    <button onclick="createPersonaFetchPromesas();">CREAR UNA PERSONA FETCH PROMESAS</button>
+    <br>
+    <button onclick="createPersonasAxiosAsync();">CREAR UNA PERSONA AXIOS ASYNC-AWAIT</button>
+    <br>
+    <button onclick="deletePersonaAjaxId(3);">ELIMINAR UNA PERSONA AJAX</button>
+    <br>
+    <button onclick="deletePersonaFetchPromesas(4);">ELIMINAR UNA PERSONA FETCH PROMESAS</button>
+    <br>
+    <button onclick="deletePersonasAxiosAsync(5);">ELIMINAR UNA PERSONA AXIOS ASYNC-AWAIT</button>
+    <br>
+    <button onclick="updatePersonaAjaxId();">UPDATE UNA PERSONA AJAX</button>
+    <br>
+
+    <div class="spinner"></div>
+
+    
+</body>
+</html>

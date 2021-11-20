@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASINCRONIA CON PROMESAS</title>
+</head>
+<body>
+    <script>    
+    
+        function validarPar(numero) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (typeof numero === "number") {
+                        let retorno = "Es par"
+                        if (numero % 2) {
+                            resolve(retorno)
+                            retorno = "Es impar"
+                        }
+                        resolve(retorno)
+                    } else {
+                        reject("Eso no es par ni impar");
+                    }
+                }, 1000);
+            });
+        }
+
+        console.log("Inicio");
+        validarPar(24)
+            .then(resultado => {
+                console.log(resultado);
+            })
+            .catch(error => {
+                console.log(error);
+            });            
+        console.log("Fin");
+            
+    ///Sumar dos numeros y al resultado calcularle el cuadrado
+    ///y al cuadrado multiplicarlo por 10 y al resultado restarle 2
+    ///y al resultado informarlo por consola
+
+    function sumarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 + numero2;
+                    resolve(resultado);
+                    console.log("La suma es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la suma");
+                }
+            }, 1000);
+        });
+    }
+
+    function cuadradoPromise(numero) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero === "number") {
+                    let resultado = numero * numero;
+                    resolve(resultado);
+                    console.log("El cuadrado es " + resultado);
+                } else {
+                    reject("Eso no es un numero");
+                }
+            }, 1000);
+        });
+    }
+
+    function multiplicarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 * numero2;
+                    resolve(resultado);
+                    console.log("La multiplicacion es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la multiplicacion");
+                }
+            }, 1000);
+        });
+    }
+
+    function restarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 - numero2;
+                    resolve(resultado);
+                    console.log("La resta es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la resta");
+                }
+            }, 1000);
+        });
+    }
+
+    function calcular(a,b){
+        ///PROMISE HELL (ESTA MAL PERO NO TAN MAL)
+        sumarPromise(a, b)
+        .then(suma => cuadradoPromise(suma))
+        .then(cuadrado => multiplicarPromise(cuadrado, 10)) 
+        .then(producto => restarPromise(producto, 2))
+        .then(resta => console.log(resta))
+        .catch(error => console.log(error));
+    }
+
+    console.log("Inicio");
+    
+    calcular(3,4);  
+    
+    console.log("Fin");
+    
+    </script>
+    
+</body>
+</html>

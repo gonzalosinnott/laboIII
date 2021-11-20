@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASINCRONIA CON CALLBACKS</title>
+</head>
+<body>
+    <script>    
+    
+    ///Sumar dos numeros y al resultado calcularle el cuadrado
+    ///y al cuadrado multiplicarlo por 10 y al resultado restarle 2
+    ///y al resultado informarlo por consola
+
+
+   function sumar(a,b, callback){
+       let suma
+       setTimeout(() => {
+           suma = a + b;
+           console.log("La suma es " + suma);
+           callback(suma)
+       }, 1000);
+
+   }
+   
+   function cuadrado(a, callback){
+        let cuad;
+        setTimeout(() => {
+            cuad = a * a;
+            console.log("El cuadrado es " + cuad);
+            callback(cuad)
+        }, 1000);
+    }
+
+    function multiplicar(a,b, callback){
+        let prod;
+        setTimeout(() => {
+            prod = a * b;
+            console.log("El producto es " + prod);
+            callback(prod);
+        }, 1000);
+    }
+
+    function restar(a,b, callback){
+        let res;
+        setTimeout(() => {
+            res = a - b;
+            console.log("La resta es " + res);
+            callback(res);
+        }, 1000);
+    }
+
+    function mostrar(a){
+        console.log('El resultado es ' + a);
+    }
+
+    console.log('Iniciando la ejecución');
+    
+    ///CALLBACK HELL (NO SE HACE ASI)
+    sumar(3,4, (suma)=>{
+        cuadrado(suma, (cuad)=>{
+            multiplicar(cuad, 10, (prod)=>{
+                restar(prod, 2, (res)=>{
+                    mostrar(res);
+                })
+            })
+        })
+    })
+
+    console.log('Fin de la ejecución');   
+    
+    
+
+
+    
+    </script>
+    
+</body>
+</html>

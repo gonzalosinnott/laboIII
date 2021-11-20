@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASINCRONIA CON ASYNC AWAIT</title>
+</head>
+<body>
+    <script>     
+        
+            
+    ///Sumar dos numeros y al resultado calcularle el cuadrado
+    ///y al cuadrado multiplicarlo por 10 y al resultado restarle 2
+    ///y al resultado informarlo por consola
+
+    function sumarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 + numero2;
+                    resolve(resultado);
+                    console.log("La suma es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la suma");
+                }
+            }, 1000);
+        });
+    }
+
+    function cuadradoPromise(numero) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero === "number") {
+                    let resultado = numero * numero;
+                    resolve(resultado);
+                    console.log("El cuadrado es " + resultado);
+                } else {
+                    reject("Eso no es un numero");
+                }
+            }, 1000);
+        });
+    }
+
+    function multiplicarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 * numero2;
+                    resolve(resultado);
+                    console.log("La multiplicacion es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la multiplicacion");
+                }
+            }, 1000);
+        });
+    }
+
+    function restarPromise(numero1, numero2) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (typeof numero1 === "number" && typeof numero2 === "number") {
+                    let resultado = numero1 - numero2;
+                    resolve(resultado);
+                    console.log("La resta es " + resultado);
+                } else {
+                    reject("Parametros invalidos en la resta");
+                }
+            }, 1000);
+        });
+    }
+
+    function mostrar(a){
+        console.log('El resultado es ' + a);
+    }
+
+    async function calcular(a,b){
+        try{
+            let suma = await sumarPromise(a,b);
+            let cuadrado = await cuadradoPromise(suma);
+            let multiplicacion = await multiplicarPromise(cuadrado,10);
+            let resta = await restarPromise(multiplicacion,2);
+            mostrar(resta);
+        }catch(error){
+            console.log(error);
+        }            
+    }
+
+    console.log("Inicio");
+    
+    calcular(3,4);  
+    
+    console.log("Fin");
+    
+    </script>
+    
+</body>
+</html>
