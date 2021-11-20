@@ -118,14 +118,14 @@ function cargarFormulario(anuncio) {
     mostrarBotones();
 
     const {txtId, txtTitulo, txtDescripcion, txtTransaccion,  txtPrecio, txtPuertas, txtKms, txtPotencia} = $formulario;
-
+    console.log(anuncio);
     txtId.value = parseInt(anuncio.id);
     txtTitulo.value= anuncio.titulo;
     txtDescripcion.value = anuncio.descripcion;
     txtTransaccion.value = anuncio.transaccion;    
     txtPrecio.value = anuncio.precio;
     txtPuertas.value= anuncio.puertas;
-    txtKms.value= anuncio.kilometros;
+    txtKms.value= anuncio.kms;
     txtPotencia.value= anuncio.potencia;
 };
 

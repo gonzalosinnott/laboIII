@@ -41,7 +41,7 @@ export const crearTabla = (data)=>{
     tabla.appendChild(thead);
     
     //cargo el tbody
-    data.forEach((element) => {
+    Object.values(data).forEach((element) => {
 
         const tr = document.createElement("tr");
 

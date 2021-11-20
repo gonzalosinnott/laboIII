@@ -29,6 +29,36 @@
       "puertas": "5",
       "kms": "200000",
       "potencia": "100"
+    },
+    {
+      "id": 4,
+      "titulo": "Chevrolet",
+      "transaccion": "Venta",
+      "descripcion": "Onix LTZ",
+      "precio": "450000",
+      "puertas": "5",
+      "kms": "15000",
+      "potencia": "145"
+    },
+    {
+      "id": 5,
+      "titulo": "Renault",
+      "transaccion": "Permuta",
+      "descripcion": "Sandero Stepway",
+      "precio": "940000",
+      "puertas": "4",
+      "kms": "35000",
+      "potencia": "350"
+    },
+    {
+      "id": 6,
+      "titulo": "Fiat",
+      "transaccion": "Alquiler",
+      "descripcion": "Palio Adventure",
+      "precio": "350000",
+      "puertas": "5",
+      "kms": "13000",
+      "potencia": "123"
     }
   ]
 }

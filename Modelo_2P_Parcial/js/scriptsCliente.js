@@ -49,7 +49,7 @@ function actualizarAnuncios(){
 
         liPrecio.appendChild(document. createTextNode(` Precio: ${element.precio}`));
         liPuertas.appendChild(document. createTextNode(` Puertas: ${element.puertas}`));
-        liKm.appendChild(document. createTextNode(` Km: ${element.kilometros}`));
+        liKm.appendChild(document. createTextNode(` Km: ${element.kms}`));
         liPotencia.appendChild(document. createTextNode(` Potencia: ${element.potencia}`));
 
         const ul = document.createElement("ul");
