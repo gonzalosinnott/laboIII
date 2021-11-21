@@ -73,7 +73,7 @@ const deleteAnuncio = async(id) => {
   }    
 };
 
-///PUT NO ANDA
+///PUT
 function updateAnuncio(anuncio){
   axios.put(URL+ "/" + anuncio.id, anuncio)
   .then(({data}) => {

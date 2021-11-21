@@ -21,8 +21,7 @@ const limpiarSpinner = () => {
 
 ///GET
 function getAll(){
-    const xhr = new XMLHttpRequest();
-  
+    const xhr = new XMLHttpRequest();  
 
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4) {
@@ -51,9 +50,6 @@ function createAnuncio(anuncio){
     const nuevoAnuncio = JSON.stringify(anuncio)
     const xhr = new XMLHttpRequest();
 
-    limpiarSpinner();
-  
-    divSpinner.appendChild(crearSpinner());
     xhr.addEventListener("readystatechange", () => {
       if (xhr.readyState == 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
