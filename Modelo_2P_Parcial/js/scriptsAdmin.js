@@ -102,7 +102,8 @@ const handlerDelete = (id) => {
 
 function actualizarTabla(data) {
     $divTabla.appendChild(crearTabla(data));
-    toogleTabla();         
+    toogleTablaIconos();
+    toogleTablaCheckboxes();
 };
 
 function limpiarTabla() {
@@ -136,9 +137,13 @@ function mostrarBotones() {
     botonCancelar.hidden = false;
 };
 
-function toogleTabla () {
+
+///USE DOS FORMAS DE OCULTAR Y MOSTRAR LAS TABLAS, UNA POR CHECKBOXES ARRIBA DE LA TABLA COMO SE PEDIA Y OTRA
+///POR ICONOS EN LA CABECERA DE LA TABLA.
+
+function toogleTablaIconos () {
     $(function() {
-        // on init
+     
         $(".table-hideable .hide-col").each(HideColumnIndex);
       
         $('.hide-column').click(HideColumnIndex);
@@ -164,6 +169,19 @@ function toogleTabla () {
           $table.find("th, td")
             .removeClass('hide-col');      
         })      
+    });    
+}
+
+function toogleTablaCheckboxes () {
+
+    $("input:checkbox:not(:checked)").each(function() {
+        var column = "table ." + $(this).attr("name");
+        $(column).hide();
+    });
+
+    $("input:checkbox").click(function(){
+        var column = "table ." + $(this).attr("name");
+        $(column).toggle();
     });
 }
     

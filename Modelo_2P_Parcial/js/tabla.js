@@ -26,6 +26,7 @@ export const crearTabla = (data)=>{
         if(key !== "id"){
             const th = document.createElement("th");
             const contenido = document.createTextNode(key);
+            th.className = key;
 
             const i = document.createElement("i");
             i.className = "fa fa-eye-slash";
@@ -68,6 +69,7 @@ export const crearTabla = (data)=>{
             else{
                 const td = document.createElement("td");
                 td.textContent = element[key];
+                td.className = key;
 
                 tr.appendChild(td);
             }
