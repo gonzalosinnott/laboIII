@@ -1,13 +1,13 @@
-const URL="http://localhost:3000/anuncios";
+import { getAll } from "./scriptCRUDXMLHttpRequest.js";
+//import { getAll } from "./scriptCRUDFetch.js";
+//import { getAll } from "./scriptCRUDAxios.js";
 
-const divSpinner = document.querySelector(".spinnerClientes");
-let anuncios = [];
 
 document.addEventListener('DOMContentLoaded', function() {    
-    getAll();
+    getAll(actualizarAnuncios);
  }, false);  
 
-function actualizarAnuncios(){
+function actualizarAnuncios(anuncios){
 
     const divContainer = document.createElement('div');
 
@@ -122,43 +122,3 @@ function actualizarAnuncios(){
     document.getElementById('divAnuncios').appendChild(divContainer);
 };
 
-
-function getAll(){
-    const xhr = new XMLHttpRequest();
-    limpiarSpinner();          
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState == 4) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          const data = JSON.parse(xhr.responseText);
-          anuncios = data;
-          actualizarAnuncios();         
-        } else {
-          console.error(`Error: ${xhr.status} : ${xhr.statusText} `);          
-          alert(`Error: ${xhr.status} : ${xhr.statusText} `);
-        }
-        limpiarSpinner();
-      } else {
-          divSpinner.appendChild(crearSpinner());
-      }    
-    };
-  
-    xhr.open("GET", URL);
-    xhr.send();
-  };
-
-  function crearSpinner() {
-    const spinner = document.createElement("img");
-  
-    spinner.width = 300;
-    
-    spinner.setAttribute("src", "./assets/loader.gif");
-    spinner.setAttribute("alt", "loader");
-  
-    return spinner;
-  };
-  
-  const limpiarSpinner = () => {
-    while(divSpinner.hasChildNodes()){
-        divSpinner.removeChild(divSpinner.firstChild);
-    }
-  };

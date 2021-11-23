@@ -1,9 +1,9 @@
-import { actualizarTabla, divSpinner } from "./scriptsAdmin.js";  
 export { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios};
 
 const URL="http://localhost:3000/anuncios";
 
 let anuncios = [];
+const divSpinner = document.querySelector(".spinner");
 
 function crearSpinner() {
   const spinner = document.createElement("img");
@@ -23,13 +23,13 @@ const limpiarSpinner = () => {
 };
 
 ///GET
-function getAll(){
+const getAll = (callback) =>{
 
   divSpinner.appendChild(crearSpinner());
   axios.get(URL)
   .then(({data}) => {
     anuncios = data;
-    actualizarTabla(anuncios);
+    callback(anuncios);
   }) 
   .catch(error => {
       console.error(error);
@@ -47,7 +47,6 @@ function createAnuncio(anuncio){
   axios.post(URL, anuncio)
   .then(({data}) => {
     anuncios = data;
-    actualizarTabla(anuncios);
   }) 
   .catch(error => {
       console.error(error);
@@ -63,11 +62,10 @@ const deleteAnuncio = async(id) => {
   try{
     const {data} = await axios.delete(URL + "/" + id);
     anuncios = data;
-    actualizarTabla(anuncios);
-    alert(error.response);
   }
   catch(error){
       console.error(error.response);
+      alert(error.response);
   }
   finally{
   }    
@@ -78,7 +76,6 @@ function updateAnuncio(anuncio){
   axios.put(URL+ "/" + anuncio.id, anuncio)
   .then(({data}) => {
     anuncios = data;
-    actualizarTabla(anuncios);
   }) 
   .catch(error => {
       console.error(error);

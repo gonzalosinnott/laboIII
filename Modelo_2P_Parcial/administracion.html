@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,16 +13,17 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script type="module" src="./js/scriptsAdmin.js"></script>
+    crossorigin="anonymous"></script>  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css" />
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <script type="module" src="./js/scriptsAdmin.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
 
   <title>2° PARCIAL LABORATORIO III</title>
 </head>
@@ -31,158 +31,154 @@
 <body>
   <div class="container-fluid backgroundImage">
     <header>
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand">
-            <img src="./assets/logo.png" width="100" height="40" class="d-inline-block fa-align-center" alt="">
-            2° PARCIAL LABORATORIO III
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html">Cliente</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./administracion.html">Administrador</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">
+          <img src="./assets/logo.png" width="100" height="40" class="d-inline-block fa-align-center" alt="">
+          2° PARCIAL LABORATORIO III
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./administracion.html">Administrador</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-    <div class="container-fluid">
+
+    <main>
       <h1 class="title">Administracion</h1>
       <div>
         <img class="banner" src="./assets/banner.jpg" alt="banner" />
       </div>
-    </div>
 
-    <br>
+      <br>
 
-    <main>
-      <div class="container-fluid">
-        <div class="card">
-          <div class="card-body">
-            <section class="carga-datos">
-              <h2 id="tituloForm"></h2>
-              <form id="frm">
+      <div class="card">
+        <div class="card-body">
+          <section class="carga-datos">
+            <h2 id="tituloForm"></h2>
+            <form id="frm" onsubmit="return false;">
 
-                <input type="hidden" id="txtId" name="txtId">
+              <input type="hidden" id="txtId" name="txtId">
 
-                <input class="form-style" type="text" id="txtTitulo" name="txtTitulo" placeholder="TITULO"
-                  autocomplete="off" required>
+              <input class="form-style" type="text" id="txtTitulo" name="txtTitulo" placeholder="TITULO"
+                autocomplete="off" required>
 
 
-                <select class="form-style" name="txtTransaccion" id="txtTransaccion">
-                  <option value="" disabled selected>---ELEGIR TRANSACCION---</option>
-                  <option value="Venta">Venta</option>
-                  <option value="Alquiler">Alquiler</option>
-                  <option value="Permuta">Permuta</option>
-                </select>
+              <select class="form-style" name="txtTransaccion" id="txtTransaccion">
+                <option value="" disabled selected>---ELEGIR TRANSACCION---</option>
+                <option value="Venta">Venta</option>
+                <option value="Alquiler">Alquiler</option>
+                <option value="Permuta">Permuta</option>
+              </select>
 
-                <textarea class="form-style" id="txtDescripcion" name="txtDescripcion" rows="2"
-                  placeholder="DESCRIPCION" autocomplete="off" required></textarea>
+              <textarea class="form-style" id="txtDescripcion" name="txtDescripcion" rows="2"
+                placeholder="DESCRIPCION" autocomplete="off" required></textarea>
 
-                <div class="inputWithIcon">
-                  <input class="form-style" type="number" id="txtPrecio" name="txtPrecio" placeholder="PRECIO"
-                    autocomplete="off" required min="1">
-                  <i class="fas fa-dollar-sign"></i>
-                </div>
+              <div class="inputWithIcon">
+                <input class="form-style" type="number" id="txtPrecio" name="txtPrecio" placeholder="PRECIO"
+                  autocomplete="off" required min="1">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
 
-                <div class="inputWithIcon">
-                  <input class="form-style" type="number" id="txtPuertas" name="txtPuertas" placeholder="PUERTAS"
-                    autocomplete="off" required min="1">
-                  <i class="fas fa-door-open" aria-hidden="true"></i>
-                </div>
+              <div class="inputWithIcon">
+                <input class="form-style" type="number" id="txtPuertas" name="txtPuertas" placeholder="PUERTAS"
+                  autocomplete="off" required min="1">
+                <i class="fas fa-door-open" aria-hidden="true"></i>
+              </div>
 
-                <div class="inputWithIcon">
-                  <input class="form-style" type="number" id="txtKms" name="txtKms" placeholder="KMs" autocomplete="off"
-                    required min="0">
-                  <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
-                </div>
+              <div class="inputWithIcon">
+                <input class="form-style" type="number" id="txtKms" name="txtKms" placeholder="KMs" autocomplete="off"
+                  required min="0">
+                <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+              </div>
 
-                <div class="inputWithIcon">
-                  <input class="form-style" type="number" id="txtPotencia" name="txtPotencia" placeholder="POTENCIA"
-                    autocomplete="off" required min="1">
-                  <i class="fas fa-bolt" aria-hidden="true"></i>
-                </div>
+              <div class="inputWithIcon">
+                <input class="form-style" type="number" id="txtPotencia" name="txtPotencia" placeholder="POTENCIA"
+                  autocomplete="off" required min="1">
+                <i class="fas fa-bolt" aria-hidden="true"></i>
+              </div>
 
-                <br>
+              <br>
 
-                <div class="buttons">
-                  <input class="btn-style" type="submit" id="btnSubmit" style="font-family: FontAwesome"
-                    value="&#xf00c;">
-                  <input class="btn-style" type="button" id="btnDelete" style="font-family: FontAwesome"
-                    value="&#xf1f8;" hidden="hidden">
-                  <input class="btn-style" type="reset" id="btnCancel" style="font-family: FontAwesome" value="&#xf00d;"
-                    hidden="hidden">
-                </div>
+              <div class="buttons">
+                <input class="btn-style" type="submit" id="btnSubmit" style="font-family: FontAwesome"
+                  value="&#xf00c;">
+                <input class="btn-style" type="button" id="btnDelete" style="font-family: FontAwesome"
+                  value="&#xf1f8;" hidden="hidden">
+                <input class="btn-style" type="reset" id="btnCancel" style="font-family: FontAwesome" value="&#xf00d;"
+                  hidden="hidden">
+              </div>
 
-                <br>
-                
-                <div class="alert alert-success" role="alert" id="createAlert">
-                  ANUNCIO CREADO CON EXITO
-                </div>
-                <div class="alert alert-success" role="alert" id="deleteAlert">
-                  ANUNCIO BORRADO CON EXITO
-                </div>
-                <div class="alert alert-success" role="alert" id="modifyAlert">
-                  ANUNCIO MODIFICADO CON EXITO
-                </div>
+              <br>
+              
+              <div class="alert alert-success" role="alert" id="createAlert">
+                ANUNCIO CREADO CON EXITO
+              </div>
+              <div class="alert alert-success" role="alert" id="deleteAlert">
+                ANUNCIO BORRADO CON EXITO
+              </div>
+              <div class="alert alert-success" role="alert" id="modifyAlert">
+                ANUNCIO MODIFICADO CON EXITO
+              </div>
 
-              </form>
-            </section>
-          </div>
+            </form>
+          </section>
         </div>
+      </div>
 
-        <br>
+      <br>
 
-        <div class="card">
-          <div class="card-body">
+      <div class="card">
+        <div class="card-body">
 
-            <h2>LISTADO DE ANUNCIOS</h2>
+          <h2>LISTADO DE ANUNCIOS</h2>
 
-            <select class="form-control" id="selectFiltro">
-              <option selected disabled>SELECCIONE UN TIPO DE TRANSACCION</option>
-              <option value="1">Todos</option>
-              <option value="2">Venta</option>
-              <option value="3">Alquiler</option>
-              <option value="4">Permuta</option>
-            </select>
-            
-            <br>
+          <select class="form-control" id="selectFiltro">
+            <option selected disabled>SELECCIONE UN TIPO DE TRANSACCION</option>
+            <option value="1">Todos</option>
+            <option value="2">Venta</option>
+            <option value="3">Alquiler</option>
+            <option value="4">Permuta</option>
+          </select>
+          
+          <br>
 
-            <div class="container-fluid">
-              <div class="form-group row">
-                <div class="form-group col-sm-3">
-                  <i class="fas fa-dollar-sign"></i>
-                  <label>MAXIMO </label>                  
-                  <input class="form-control " type="number" id="txtMax" name="txtMax" placeholder="MAXIMO" readonly>
-                </div>
-            
-                <div class="form-group col-sm-3">
-                  <i class="fas fa-dollar-sign"></i>         
-                  <label>MINIMO</label>                  
-                  <input class="form-control" type="number" id="txtMin" name="txtMin" placeholder="MINIMO" readonly>
-                </div>
+          <div class="container-fluid">
+            <div class="form-group row">
+              <div class="form-group col-sm-3">
+                <i class="fas fa-dollar-sign"></i>
+                <label>MAXIMO </label>                  
+                <input class="form-control " type="number" id="txtMax" name="txtMax" placeholder="MAXIMO" readonly>
+              </div>
+          
+              <div class="form-group col-sm-3">
+                <i class="fas fa-dollar-sign"></i>         
+                <label>MINIMO</label>                  
+                <input class="form-control" type="number" id="txtMin" name="txtMin" placeholder="MINIMO" readonly>
+              </div>
 
-                <div class="form-group col-sm-3"> 
-                  <i class="fas fa-dollar-sign"></i>           
-                  <label>PROMEDIO</label>                  
-                  <input class="form-control" type="number" id="txtPromedio" name="txtPromedio" placeholder="PROMEDIO" readonly>
-                </div>
-            
-                <div class="form-group col-sm-3">
-                  <i class="fas fa-dollar-sign"></i>            
-                  <label>TOTAL</label>                  
-                  <input class="form-control" type="number" id="txtTotal" name="txtTotal" placeholder="TOTAL" readonly>
-                </div>
+              <div class="form-group col-sm-3"> 
+                <i class="fas fa-dollar-sign"></i>           
+                <label>PROMEDIO</label>                  
+                <input class="form-control" type="number" id="txtPromedio" name="txtPromedio" placeholder="PROMEDIO" readonly>
+              </div>
+          
+              <div class="form-group col-sm-3">
+                <i class="fas fa-dollar-sign"></i>            
+                <label>TOTAL</label>                  
+                <input class="form-control" type="number" id="txtTotal" name="txtTotal" placeholder="TOTAL" readonly>
               </div>
             </div>
+          </div>
 
             <section class="lista-elementos">              
               <div class="table-responsive" id="divTabla"></div>
@@ -193,14 +189,11 @@
       </div>
     </main>
 
-    <br>
-
-    <div class="container-fluid">
-      <footer>
-        <div class="footer-content">&copy; 2021 - Gonzalo Sinnott Segura -</div>
-      </footer>
-    </div>
+    <br> 
+        
+    <footer>
+      <div class="footer-content">&copy; 2021 - Gonzalo Sinnott Segura -</div>
+    </footer>
   </div>
 </body>
-
 </html>

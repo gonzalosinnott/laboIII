@@ -1,9 +1,9 @@
-import { actualizarTabla, divSpinner } from "./scriptsAdmin.js";  
 export { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios};
 
 const URL="http://localhost:3000/anuncios";
 
 let anuncios = [];
+const divSpinner = document.querySelector(".spinner");
 
 function crearSpinner() {
   const spinner = document.createElement("img");
@@ -23,14 +23,14 @@ const limpiarSpinner = () => {
 };
 
 ///GET
-function getAll(){
+const getAll = (callback) =>{
 
   divSpinner.appendChild(crearSpinner());
   fetch(URL)
   .then(response => response.ok ? response.json() : Promise.reject(new Error(`Error: ${response.status} : ${response.statusText} `)))
   .then((data)=>{
     anuncios = data;
-    actualizarTabla(anuncios);
+    callback(anuncios);
   }) 
   .catch(error => {
       console.error(error);

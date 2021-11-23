@@ -3,7 +3,23 @@ export const crearTabla = (data)=>{
     const tabla = document.createElement("table");    
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
-    const cabecera = document.createElement("tr");    
+    const cabecera = document.createElement("tr");   
+    
+    const a = document.createElement("a");
+    a.className = "restore-columns";
+    a.setAttribute("href", "javascript:void(0);");
+    a.textContent = "Restaurar columnas";
+
+    const th = document.createElement("th");
+    th.setAttribute("colspan", "7");
+    th.appendChild(a);
+
+    const tfoot = document.createElement("thead");
+    tfoot.className = "footer-restore-columns";
+
+    tfoot.appendChild(th);
+
+    tabla.appendChild(tfoot);
     
     //cargo el thead
     for (const key in data[0]) {
@@ -62,21 +78,7 @@ export const crearTabla = (data)=>{
 
     tabla.appendChild(tbody)
 
-    const a = document.createElement("a");
-    a.className = "restore-columns";
-    a.setAttribute("href", "javascript:void(0);");
-    a.textContent = "Restaurar columnas";
-
-    const th = document.createElement("th");
-    th.setAttribute("colspan", "7");
-    th.appendChild(a);
-
-    const tfoot = document.createElement("tfoot");
-    tfoot.className = "footer-restore-columns";
-
-    tfoot.appendChild(th);
-
-    tabla.appendChild(tfoot);
+    
 
     tabla.className = "table table-condensed table-hover table-bordered table-striped table-hideable";
 

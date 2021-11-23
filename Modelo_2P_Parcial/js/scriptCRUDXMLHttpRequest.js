@@ -1,15 +1,15 @@
-import { actualizarTabla, divSpinner } from "./scriptsAdmin.js";  
 export { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios};
 
 const URL="http://localhost:3000/anuncios";
 
 let anuncios = [];
+const divSpinner = document.querySelector(".spinner");
 
 function crearSpinner() {
   const spinner = document.createElement("img");
   spinner.setAttribute("src", "./assets/loader.gif");
   spinner.setAttribute("alt", "loader");
-  spinner.width = 300;
+  spinner.setAttribute("style", "width:600px");
   return spinner;
 };
 
@@ -20,7 +20,7 @@ const limpiarSpinner = () => {
 };
 
 ///GET
-function getAll(){
+const getAll = (callback) =>{
     const xhr = new XMLHttpRequest();  
 
     xhr.onreadystatechange = () => {
@@ -28,7 +28,7 @@ function getAll(){
         if (xhr.status >= 200 && xhr.status < 300) {
           const data = JSON.parse(xhr.responseText);
           anuncios = data;
-          actualizarTabla(anuncios);         
+          callback(anuncios);         
         } else {
           console.error(`Error: ${xhr.status} : ${xhr.statusText} `);          
           alert(`Error: ${xhr.status} : ${xhr.statusText} `);
@@ -54,8 +54,7 @@ function createAnuncio(anuncio){
       if (xhr.readyState == 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
           const data = JSON.parse(xhr.responseText);
-          anuncios = data;
-           
+          anuncios = data;           
         } else {
           console.error(`Error: ${xhr.status} : ${xhr.statusText} `);
           alert(`Error: ${xhr.status} : ${xhr.statusText} `);
@@ -78,8 +77,7 @@ function deleteAnuncio(id){
       if (xhr.readyState == 4){
         if(xhr.status >= 200 && xhr.status < 300){
             const data = JSON.parse(xhr.responseText);
-            anuncios = data;
-            
+            anuncios = data;            
         }
         else{
             console.error(`Error: ${xhr.status} : ${xhr.statusText} `);

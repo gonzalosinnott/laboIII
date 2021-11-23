@@ -4,18 +4,16 @@ import { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios} from "./
 //import { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios} from "./scriptCRUDFetch.js";
 //import { getAll, createAnuncio, deleteAnuncio, updateAnuncio, anuncios} from "./scriptCRUDAxios.js";
 
-export { actualizarTabla, divSpinner};    
-
 const $formulario = document.forms[0];
 const $divTabla = document.getElementById("divTabla");
-const divSpinner = document.querySelector(".spinner");
 
-
-getAll();
-resetForm();
-$("#createAlert").hide();
-$("#deleteAlert").hide();
-$("#modifyAlert").hide();
+document.addEventListener('DOMContentLoaded', function() {    
+    getAll(actualizarTabla);
+    resetForm();
+    $("#createAlert").hide();
+    $("#deleteAlert").hide();
+    $("#modifyAlert").hide();
+ }, false);  
  
 window.addEventListener("click", (e)=>{
 
@@ -164,15 +162,13 @@ function toogleTabla () {
           var $table = $(this).closest('table')
           $table.find(".footer-restore-columns").hide()
           $table.find("th, td")
-            .removeClass('hide-col');
-      
-        })
-      
+            .removeClass('hide-col');      
+        })      
     });
 }
     
 
-  document.getElementById('selectFiltro').addEventListener('change', function() {
+document.getElementById('selectFiltro').addEventListener('change', function() {
     
     const filtro = $('#selectFiltro option:selected').text();
     

@@ -1,16 +1,6 @@
 {
   "anuncios": [
     {
-      "id": 1,
-      "titulo": "Ford",
-      "transaccion": "Venta",
-      "descripcion": "Fiesta",
-      "precio": "300000",
-      "puertas": "5",
-      "kms": "100000",
-      "potencia": "180"
-    },
-    {
       "id": 2,
       "titulo": "Chevrolet",
       "transaccion": "Alquiler",
@@ -59,6 +49,16 @@
       "puertas": "5",
       "kms": "13000",
       "potencia": "123"
+    },
+    {
+      "id": 7,
+      "titulo": "Ford",
+      "transaccion": "Venta",
+      "descripcion": "Focus",
+      "precio": "350000",
+      "puertas": "5",
+      "kms": "100000",
+      "potencia": "230"
     }
   ]
 }
